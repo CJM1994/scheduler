@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -142,9 +142,9 @@ storiesOf("InterviewerList", module)
   ));
 
 storiesOf('Appointment', module)
-  .addParameters({
-    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
-  })
+  // .addParameters({
+  //   backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  // })
   .add('Appointment', () => <Appointment />)
   .add('Appointment with Time', () => <Appointment time='12pm' />)
   .add('Header', () => <Header time='12pm' />)
@@ -181,4 +181,20 @@ storiesOf('Appointment', module)
       onSave={action('onSave')}
       onCancel={action('onCancel')}
     />
+  ))
+  .add("Appointment Empty", () => (
+    <Fragment>
+      <Appointment id={1} time="4pm" />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
+  .add("Appointment Booked", () => (
+    <Fragment>
+      <Appointment
+        id={1}
+        time="4pm"
+        interview={{ student: "Lydia Miller-Jones", interviewer }}
+      />
+      <Appointment time="5pm" />
+    </Fragment>
   ))
