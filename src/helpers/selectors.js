@@ -8,3 +8,8 @@ export function getAppointmentsForDay(state, day) {
 
   return filteredAppointments;
 };
+
+export function getInterview(state, interview) {
+  if (!interview) return null;
+  return { student: interview.student, interviewer: state.interviewers[interview.interviewer] };
+};
