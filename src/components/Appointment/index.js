@@ -34,6 +34,7 @@ export default function Appointment(props) {
 
       {mode === CREATE &&
         <Form // THIS IS A PLACEHOLDER UNTIL INTERVIEWERS ARE ADDED PROPERLY
+          onCancel={back}
           interviewers={[{
             "id": 1,
             "name": "Sylvia Palmer",
