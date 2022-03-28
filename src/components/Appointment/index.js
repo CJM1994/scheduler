@@ -45,9 +45,9 @@ export default function Appointment(props) {
 
   };
 
-  const confirm = () => {
+  const confirm = (callback) => {
     if (mode === CONFIRM) {
-      deleteInterview();
+      callback();
     } else {
       transition(CONFIRM);
     }
@@ -88,7 +88,7 @@ export default function Appointment(props) {
       }
 
       {mode === CONFIRM &&
-        <Confirm onCancel={back} onConfirm={confirm} message='Are you sure you want to delete this appointment?' />
+        <Confirm onCancel={back} onConfirm={() => confirm(deleteInterview)} message='Are you sure you want to delete this appointment?' />
       }
 
     </article>
