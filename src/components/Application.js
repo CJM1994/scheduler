@@ -17,6 +17,10 @@ export default function Application(props) {
 
   const setDay = day => setState({ ...state, day });
 
+  const bookInterview = (id, interview) => {
+    console.log(id, interview);
+  };
+
   useEffect(() => {
 
     Promise.all([
@@ -62,6 +66,7 @@ export default function Application(props) {
               time={appointment.time}
               interview={interview}
               interviewers={dailyInterviewers}
+              bookInterview={bookInterview}
             />
           );
         })}
