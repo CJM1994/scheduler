@@ -39,7 +39,7 @@ export default function useApplicationData() {
     return axios.put(`/api/appointments/${id}`, appointment)
       .then(() => {
         setState({ ...state, appointments });
-        // setState({ ...state, days: updateSpots(state, state.appointments) }); // Weird Error, not related to this directly
+        setState((prev) => ({ ...prev, days: updateSpots(prev, prev.appointments) }));
       });
   };
 
@@ -52,7 +52,7 @@ export default function useApplicationData() {
     return axios.delete(`/api/appointments/${id}`)
       .then(() => {
         setState({ ...state, appointments });
-        setState({ ...state, days: updateSpots(state, state.appointments) }); // Works good!!!
+        setState({ ...state, days: updateSpots(state, state.appointments) });
       });
   };
 
