@@ -5,6 +5,7 @@ import Empty from './Empty';
 import Form from './Form';
 import Confirm from './Confirm';
 import useVisualMode from '../../hooks/useVisualMode';
+import Error from './Error';
 
 import './styles.scss';
 import Status from './Status';
@@ -18,6 +19,8 @@ export default function Appointment(props) {
   const DELETING = 'DELETING';
   const CONFIRM = 'CONFIRM';
   const EDIT = 'EDIT';
+  const ERROR_SAVE = 'ERROR_SAVE';
+  const ERROR_DELETE = 'ERROR_DELETE';
 
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
 
@@ -32,7 +35,12 @@ export default function Appointment(props) {
     props.bookInterview(props.id, interview)
       .then(() => {
         transition(SHOW);
+      })
+      .catch((error) => {
+        transition(ERROR_SAVE, true);
+        console.log(error);
       });
+
   };
 
   const deleteInterview = () => {
@@ -42,6 +50,10 @@ export default function Appointment(props) {
     props.cancelInterview(props.id)
       .then(() => {
         transition(EMPTY);
+      })
+      .catch((error) => {
+        transition(ERROR_SAVE, true);
+        console.log(error);
       });
 
   };
@@ -105,6 +117,14 @@ export default function Appointment(props) {
 
       {mode === CONFIRM &&
         <Confirm onCancel={back} onConfirm={() => confirm(deleteInterview)} message='Are you sure you want to delete this appointment?' />
+      }
+
+      {mode === ERROR_SAVE &&
+        <Error message='Server Error Ocurred When Saving' onClose={back} />
+      }
+
+      {mode === ERROR_DELETE &&
+        <Error message='Server Error Ocurred When Deleting' onClose={back} />
       }
 
     </article>
