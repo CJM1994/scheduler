@@ -31,20 +31,15 @@ export default function Appointment(props) {
       interviewer
     };
 
-    if (interview.interviewer === null || interview.student === '') {
-      back();
-    }
-    else {
-      transition(SAVING);
-      props.bookInterview(props.id, interview)
-        .then(() => {
-          transition(SHOW);
-        })
-        .catch((error) => {
-          transition(ERROR_SAVE, true);
-          console.log(error);
-        });
-    };
+    transition(SAVING);
+    props.bookInterview(props.id, interview)
+      .then(() => {
+        transition(SHOW);
+      })
+      .catch((error) => {
+        transition(ERROR_SAVE, true);
+        console.log(error);
+      });
 
   };
 
