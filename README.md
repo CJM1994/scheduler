@@ -21,3 +21,8 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Bugfixes Needed
+
+* When you delete an appointment and then create a new one with no student name or interviewer selected it causes incorrect behaviour and
+can crash, need to change handling for this event.
