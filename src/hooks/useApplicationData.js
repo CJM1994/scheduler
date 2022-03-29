@@ -39,6 +39,7 @@ export default function useApplicationData() {
     return axios.put(`/api/appointments/${id}`, appointment)
       .then(() => {
         setState({ ...state, appointments });
+        // setState({ ...state, days: updateSpots(state, state.appointments) }); // Weird Error, not related to this directly
       });
   };
 
@@ -51,9 +52,38 @@ export default function useApplicationData() {
     return axios.delete(`/api/appointments/${id}`)
       .then(() => {
         setState({ ...state, appointments });
+        setState({ ...state, days: updateSpots(state, state.appointments) }); // Works good!!!
       });
   };
 
-  return { state, setDay, bookInterview, cancelInterview };
+  const updateSpots = function (state, appointments) {
+
+    const currentDay = state.day;
+    const startingAppointments = [];
+    let returnDays = [];
+    let index = 0;
+
+    for (let i = 0; i < state.days.length; i++) {
+      if (state.days[i].name === currentDay) {
+        startingAppointments.push(...state.days[i].appointments);
+        index = i;
+      };
+    };
+
+    let spots = startingAppointments.length;
+    for (const appointment of Object.values(appointments)) {
+      if (startingAppointments.includes(appointment.id) && appointment.interview !== null) {
+        spots--;
+      };
+    };
+
+    returnDays.push(...state.days);
+    returnDays[index] = { ...returnDays[index], appointments: [...returnDays[index].appointments], interviewers: [...returnDays[index].interviewers], spots }
+
+    // return an updated days array 
+    return returnDays;
+  };
+
+  return { state, setDay, bookInterview, cancelInterview, updateSpots };
 
 };
