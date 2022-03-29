@@ -17,6 +17,7 @@ export default function Appointment(props) {
   const SAVING = 'SAVING';
   const DELETING = 'DELETING';
   const CONFIRM = 'CONFIRM';
+  const EDIT = 'EDIT';
 
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
 
@@ -53,6 +54,10 @@ export default function Appointment(props) {
     }
   };
 
+  const edit = () => {
+    transition(EDIT);
+  };
+
   return (
     <article className='appointment'>
       <Header time={props.time} />
@@ -62,6 +67,7 @@ export default function Appointment(props) {
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onDelete={confirm}
+          onEdit={edit}
         />
       }
 
@@ -76,6 +82,16 @@ export default function Appointment(props) {
           onCancel={back}
           interviewers={props.interviewers}
           onSave={save}
+        />
+      }
+
+      {mode === EDIT &&
+        <Form
+          onCancel={back}
+          interviewers={props.interviewers}
+          onSave={save}
+          student={props.interview.student}
+          interviewer={props.interview.interviewer.id}
         />
       }
 
