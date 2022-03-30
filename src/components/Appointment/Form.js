@@ -17,13 +17,14 @@ export default function Form(props) {
     props.onCancel();
   };
 
-  const enableSave = student && interviewer;
+  const enableSave = true;
 
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
         <form autoComplete="off" onSubmit={event => event.preventDefault()}>
           <input
+            data-testid='student-name-input'
             className="appointment__create-input text--semi-bold"
             name="name"
             value={student}
