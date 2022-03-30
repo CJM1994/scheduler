@@ -78,7 +78,7 @@ export default function useApplicationData() {
     };
 
     returnDays.push(...state.days);
-    returnDays[index] = { ...returnDays[index], appointments: [...returnDays[index].appointments], interviewers: [...returnDays[index].interviewers], spots }
+    returnDays[index] = { ...returnDays[index], spots }
 
     // return an updated days array 
     return returnDays;
