@@ -1,5 +1,21 @@
 # Interview Scheduler
 
+Interview Scheduler is a single page application (SPA) I built using React in order to learn the framework.
+Data is persisted by the API server using a PostgreSQL database.
+The client application communicates with an API server over HTTP, using the JSON format.
+Jest tests, Storybook and Cypress were used through the development of the project for testing.
+
+## Screenshots
+
+### Home Page
+!["Fullscreen"](docs/fullscreen.png)
+
+### Adding / Editing Appointments
+!["Adding/Editing"](docs/edit⁄create.png)
+
+### Delete Appointments
+!["Adding/Editing"](docs/delete.png)
+
 ## Setup
 
 Install dependencies with `npm install`.
@@ -30,5 +46,5 @@ npm run cypress
 
 ## Future Todos
 
-* Refactor ```javascriptuseApplicationData``` to use a reducer for the state
+* Refactor useApplicationData to use a reducer for the state
 * Deploy application to Heroku
