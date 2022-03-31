@@ -22,7 +22,13 @@ npm test
 npm run storybook
 ```
 
-## Bugfixes Needed
+## Running Cypress End-to-End Tests
 
-* When you delete an appointment and then create a new one with no student name or interviewer selected it causes incorrect behaviour and
-can crash, need to change handling for this event.
+```sh
+npm run cypress
+```
+
+## Future Todos
+
+* Refactor ```javascriptuseApplicationData``` to use a reducer for the state
+* Deploy application to Heroku
