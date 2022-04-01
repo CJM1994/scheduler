@@ -8,7 +8,8 @@
     "normalize.css": "^8.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "sass": "^1.49.10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,7 +43,6 @@
     "@testing-library/react": "^8.0.7",
     "@testing-library/react-hooks": "^7.0.2",
     "babel-loader": "^8.0.5",
-    "node-sass": "^4.14.0",
     "prop-types": "^15.8.1",
     "react-test-renderer": "^16.14.0"
   },
