@@ -5,14 +5,12 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../h
 import useApplicationData from "../hooks/useApplicationData";
 
 import "../components/Application.scss";
-import { getStorybook } from "@storybook/react";
 
 export default function Application() {
 
   const { state, setDay, bookInterview, cancelInterview } = useApplicationData();
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-  getStorybook.fasdf.asdflk;
 
   return (
     <main className="layout">
