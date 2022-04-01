@@ -4,7 +4,7 @@ Interview Scheduler is a single page application (SPA) I built using React in or
 The application allows you to create/edit/delete appointments on each day of the week based on the interviewers available for that day.  
 Data is persisted by the API server using a PostgreSQL database.  
 The client application communicates with an API server over HTTP, using the JSON format.  
-Jest tests, Storybook and Cypress were used through the development of the project for testing.  
+Jest tests, Storybook and Cypress were used through the development of the project for testing. CircleCi runs tests automatically on deployment  
 
 ## Screenshots
 
