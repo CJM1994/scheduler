@@ -31,6 +31,7 @@ Install dependencies with `npm install`.
 ```sh
 npm start
 ```
+(if running into issues with npm start try using nvm to switch to node v12)
 
 ## Running Jest Test Framework
 
@@ -52,5 +53,5 @@ npm run cypress
 
 ## Future Todos
 
-* Refactor useApplicationData to use a reducer for the state
-* Deploy application to Heroku
+* Refactor useApplicationData to use a reducer hook for the state - IN PROGRESS
+* Deploy application to Heroku - GOAL COMPLETE
