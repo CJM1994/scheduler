@@ -22,7 +22,7 @@ export default function Appointment(props) {
   const ERROR_SAVE = 'ERROR_SAVE';
   const ERROR_DELETE = 'ERROR_DELETE';
 
-  const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
+  const { mode, transition, back, back2 } = useVisualMode(props.interview ? SHOW : EMPTY);
 
   const save = (name, interviewer) => {
 
@@ -120,11 +120,11 @@ export default function Appointment(props) {
       }
 
       {mode === ERROR_SAVE &&
-        <Error message='Server Error Ocurred When Saving' onClose={back} />
+        <Error message='Server Error Ocurred When Saving' onClose={back2} />
       }
 
       {mode === ERROR_DELETE &&
-        <Error message='Server Error Ocurred When Deleting' onClose={back} />
+        <Error message='Server Error Ocurred When Deleting' onClose={back2} />
       }
 
     </article>
