@@ -7,6 +7,10 @@ The client application communicates with an API server over HTTP, using the JSON
 
 Jest tests, Storybook and Cypress were used through the development of the project for testing. CircleCi runs tests automatically on deployment and pushes tested code to the production branch  
 
+## App is now deployed with Netlify & Heroku, try it live here!
+https://schedulerlhlapp.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9a0f6783-9140-4b59-9233-e6a0d35fedee/deploy-status)](https://app.netlify.com/sites/schedulerlhlapp/deploys)
+
 ## Screenshots
 
 ### Home Page
@@ -27,6 +31,7 @@ Install dependencies with `npm install`.
 ```sh
 npm start
 ```
+(if running into issues with npm start try using nvm to switch to node v12)
 
 ## Running Jest Test Framework
 
@@ -48,5 +53,5 @@ npm run cypress
 
 ## Future Todos
 
-* Refactor useApplicationData to use a reducer for the state
-* Deploy application to Heroku
+* Refactor useApplicationData to use a reducer hook for the state - IN PROGRESS
+* Deploy application to Heroku - GOAL COMPLETE
